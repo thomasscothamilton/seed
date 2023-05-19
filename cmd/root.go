@@ -18,6 +18,9 @@ var (
 	// The environment variable prefix of all environment variables bound to our command line flags.
 	// For example, --number is bound to STING_NUMBER.
 	envPrefix = ""
+
+	// Replace hyphenated flag names with camelCase in the config file
+	replaceHyphenWithCamelCase = false
 )
 
 var rootCmd = &cobra.Command{
@@ -86,6 +89,11 @@ func bindFlags(cmd *cobra.Command, v *viper.Viper) {
 	cmd.Flags().VisitAll(func(f *pflag.Flag) {
 		// Determine the naming convention of the flags when represented in the config file
 		configName := f.Name
+		// If using camelCase in the config file, replace hyphens with a camelCased string.
+		// Since viper does case-insensitive comparisons, we don't need to bother fixing the case, and only need to remove the hyphens.
+		if replaceHyphenWithCamelCase {
+			configName = strings.ReplaceAll(f.Name, "-", "")
+		}
 
 		// Apply the viper config value to the flag when the flag is not set and viper has a value
 		if !f.Changed && v.IsSet(configName) {
