@@ -11,10 +11,11 @@ import (
 )
 
 var (
-	azureInitializeCmd = &cobra.Command{
+	AzureInitializeCmd = &cobra.Command{
 		Use: "initialize --billing-account-name <billing-account-name> --billing-profile-name <billing-profile-name> --invoice-section-name <invoice-section-name>",
 		Run: func(cmd *cobra.Command, args []string) {
 			// create a new azure seed configuration
+
 			if _, err := os.Stat("seed.yaml"); err == nil {
 				fmt.Printf("file seed.yaml already exists")
 			} else if errors.Is(err, os.ErrNotExist) {
@@ -51,5 +52,5 @@ var (
 )
 
 func init() {
-	azureCmd.AddCommand(azureInitializeCmd)
+	AzureCmd.AddCommand(AzureInitializeCmd)
 }

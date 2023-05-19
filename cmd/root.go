@@ -8,6 +8,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
+	azure "github.com/thomasscothamilton/seed/cmd/azure"
 )
 
 // I'm declaring as vars so I can test easier, I recommend declaring these as constants
@@ -29,6 +30,10 @@ var rootCmd = &cobra.Command{
 		// You can bind cobra and viper in a few locations, but PersistencePreRunE on the root command works well
 		return initializeConfig(cmd)
 	},
+}
+
+func init() {
+	rootCmd.AddCommand(azure.AzureCmd)
 }
 
 func Execute() {
