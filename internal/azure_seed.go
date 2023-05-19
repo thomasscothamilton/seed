@@ -1,4 +1,4 @@
-package azure
+package azure_seed
 
 type AzureSeed struct {
 	BillingAccountName                 string `yaml:"billing-account-name"`
