@@ -12,7 +12,9 @@ import (
 
 var (
 	AzureInitializeCmd = &cobra.Command{
-		Use: "initialize --billing-account-name <billing-account-name> --billing-profile-name <billing-profile-name> --invoice-section-name <invoice-section-name>",
+		Use:   "initialize --billing-account-name <billing-account-name> --billing-profile-name <billing-profile-name> --invoice-section-name <invoice-section-name>",
+		Short: "https://github.com/thomasscothamilton/seed#initialize",
+		Long:  "https://github.com/thomasscothamilton/seed#initialize",
 		Run: func(cmd *cobra.Command, args []string) {
 			// create a new azure seed configuration
 

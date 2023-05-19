@@ -14,7 +14,8 @@ import (
 var (
 	AzureGenerateCmd = &cobra.Command{
 		Use:   "generate [name]",
-		Short: "https://developer.hashicorp.com/terraform/tutorials/kubernetes/aks",
+		Short: "https://github.com/thomasscothamilton/seed#generate",
+		Long:  "https://github.com/thomasscothamilton/seed#generate",
 		Args:  cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
 			name := args[0]
