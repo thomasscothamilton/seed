@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	azureGenerateCmd = &cobra.Command{
+	AzureGenerateCmd = &cobra.Command{
 		Use:   "generate [name]",
 		Short: "https://developer.hashicorp.com/terraform/tutorials/kubernetes/aks",
 		Args:  cobra.ExactArgs(1),
@@ -59,5 +59,5 @@ var (
 )
 
 func init() {
-	azureCmd.AddCommand(azureGenerateCmd)
+	AzureCmd.AddCommand(AzureGenerateCmd)
 }

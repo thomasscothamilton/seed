@@ -157,3 +157,17 @@ kubectl delete -f capi-quickstart.yaml
 ```shell
 cdktf destroy
 ```
+
+## seed cli
+
+### generate
+
+```shell
+seed generate
+```
+
+### initialize
+
+```shell
+seed initialize
+```
